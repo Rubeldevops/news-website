@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./app
+    ports:
+      - "5000:5000"
+    network_mode: host
+    depends_on:
+      - db
+    volumes:
+      - ./app:/app
+
+  db:
+    build:
+      context: ./db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: news
+    network_mode: host
+    volumes:
+      - db-data:/var/lib/mysql
+networks:
+  host:
+
+volumes:
+  db-data:
