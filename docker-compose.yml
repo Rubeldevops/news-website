@@ -2,11 +2,10 @@ version: '3.8'
 
 services:
   app:
-    build:
-      context: ./app
+    image: news_jenkins
     ports:
       - "5000:5000"
-    network_mode: host
+    network_mode: my_net
     depends_on:
       - db
     volumes:
@@ -18,11 +17,11 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: news
-    network_mode: host
+    network_mode: my_net
     volumes:
       - db-data:/var/lib/mysql
 networks:
-  host:
+  my_net:
 
 volumes:
   db-data:
