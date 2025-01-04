@@ -39,7 +39,8 @@ def add_news():
 # New route for welcome page
 @app.route('/welcome')
 def welcome_page():
-    return render_template('welcome.html')  # Render an HTML page
+    return 
+render_template('welcome.html')  # Render an HTML page
 
 if _name_ == '_main_':
     app.run(host='0.0.0.0', port=5000)
